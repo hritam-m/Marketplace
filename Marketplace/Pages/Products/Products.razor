@@ -1,0 +1,18 @@
+﻿@page "/products"
+@using Marketplace.Components.Product
+@using Marketplace.Models.Products
+@using MudBlazor
+@inject NavigationManager Navigation
+
+<PageTitle>Product List</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+    <MudGrid>
+        @foreach (var product in ProductList)
+        {
+            <MudItem xs="12" sm="6" md="4" lg="3">
+                <ProductCard ProductItem="product" />
+            </MudItem>
+        }
+    </MudGrid>
+</MudContainer>

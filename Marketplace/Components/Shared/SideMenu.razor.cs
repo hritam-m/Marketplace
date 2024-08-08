@@ -70,6 +70,21 @@ public partial class SideMenu
                 new()
                 {
                     IsParent = true,
+                    Title = "Products",
+                    Icon = Icons.Material.Filled.Inventory,
+                    MenuItems = new List<MenuSectionSubItemModel>
+                    {
+                        new()
+                        {
+                            Title = "Product List",
+                            Href = "/products",
+                            PageStatus = PageStatus.Completed
+                        }
+                    }
+                },
+                new()
+                {
+                    IsParent = true,
                     Title = "Article",
                     Icon = Icons.Material.Filled.Article,
                     MenuItems = new List<MenuSectionSubItemModel>

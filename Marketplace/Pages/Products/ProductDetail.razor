@@ -1,0 +1,27 @@
+﻿@page "/product/{ProductId:int}"
+@inject NavigationManager Navigation
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="product-container mt-4">
+    @if (SelectedProduct != null)
+    {
+        <MudGrid>
+            <MudItem xs="12" sm="6">
+                <MudCardMedia Image="@SelectedProduct.ImageUrl" Title="@SelectedProduct.Name" Class="product-image rounded" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudCardContent Class="product-details">
+                    <MudText Typo="Typo.h3" Class="product-title" GutterBottom="true">@SelectedProduct.Name</MudText>
+                    <MudText Typo="Typo.body1" Class="product-description" GutterBottom="true">@SelectedProduct.Description</MudText>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="NavigateBack" Class="mt-2 product-button">Back to Products</MudButton>
+                </MudCardContent>
+            </MudItem>
+        </MudGrid>
+    }
+    else
+    {
+        <MudPaper Class="product-not-found p-4">
+            <MudText Typo="Typo.h6">Product not found.</MudText>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="NavigateBack" Class="mt-2 product-button">Back to Products</MudButton>
+        </MudPaper>
+    }
+</MudContainer>

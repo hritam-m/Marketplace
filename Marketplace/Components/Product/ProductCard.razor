@@ -1,0 +1,25 @@
+﻿@using Marketplace.Models.Products
+@using MudBlazor
+@inject NavigationManager Navigation
+
+<MudCard class="rounded-lg mud-elevation-10">
+    <MudCardMedia Image="@ProductItem!.ImageUrl" Height="200" />
+    <MudCardContent>
+        <MudText Typo="Typo.h6">@ProductItem.Name</MudText>
+        <MudText Typo="Typo.body2">@ProductItem.Description</MudText>
+    </MudCardContent>
+    <MudCardActions>
+        <MudSpacer />
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="NavigateToProduct">View Details</MudButton>
+    </MudCardActions>
+</MudCard>
+
+@code {
+    [Parameter]
+    public Product? ProductItem { get; set; }
+
+    private void NavigateToProduct()
+    {
+        Navigation.NavigateTo($"/product/{ProductItem!.Id}");
+    }
+}
